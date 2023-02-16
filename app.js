@@ -11,20 +11,20 @@ const connection = mysql.createConnection({
   user: "root", // 数据库的用户名
   password: "343527", // 数据库的密码
   port: "3306", // 数据库的端口
-  database: "demo-1", // 数据库的名字
+  database: "student", // 数据库的名字
 });
 
 // 连接数据库
 connection.connect();
 
 // 定义一个get接口，接收请求参数，执行数据库操作，返回响应数据
-app.get("/api/users", (req, res) => {
+app.get("/api/class", (req, res) => {
   // 获取请求参数
   const name = req.query.name;
   // 定义一个sql语句
-  const sql = `select * from people`;
+  const sql = `select * from class`;
   // 执行sql语句
-  connection.query(spl, (err, result) => {
+  connection.query(sql, (err, result) => {
     if (err) {
       // 如果有错误，返回错误信息
       res.send(err.message);
